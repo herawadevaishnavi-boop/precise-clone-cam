@@ -13,6 +13,14 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AppRouteImport } from './routes/app'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as AppIndexRouteImport } from './routes/app.index'
+import { Route as AppBatteryRouteImport } from './routes/app.battery'
+import { Route as AppFleetRouteImport } from './routes/app.fleet'
+import { Route as AppJobsRouteImport } from './routes/app.jobs'
+import { Route as AppMatchingRouteImport } from './routes/app.matching'
+import { Route as AppOptimizationRouteImport } from './routes/app.optimization'
+import { Route as AppPlannerRouteImport } from './routes/app.planner'
+import { Route as AppTelemetryRouteImport } from './routes/app.telemetry'
+import { Route as AppWeatherRouteImport } from './routes/app.weather'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -34,16 +42,72 @@ const AppIndexRoute = AppIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AppRoute,
 } as any)
+const AppBatteryRoute = AppBatteryRouteImport.update({
+  id: '/battery',
+  path: '/battery',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppFleetRoute = AppFleetRouteImport.update({
+  id: '/fleet',
+  path: '/fleet',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppJobsRoute = AppJobsRouteImport.update({
+  id: '/jobs',
+  path: '/jobs',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppMatchingRoute = AppMatchingRouteImport.update({
+  id: '/matching',
+  path: '/matching',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppOptimizationRoute = AppOptimizationRouteImport.update({
+  id: '/optimization',
+  path: '/optimization',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppPlannerRoute = AppPlannerRouteImport.update({
+  id: '/planner',
+  path: '/planner',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppTelemetryRoute = AppTelemetryRouteImport.update({
+  id: '/telemetry',
+  path: '/telemetry',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppWeatherRoute = AppWeatherRouteImport.update({
+  id: '/weather',
+  path: '/weather',
+  getParentRoute: () => AppRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/app': typeof AppRouteWithChildren
   '/login': typeof LoginRoute
+  '/app/battery': typeof AppBatteryRoute
+  '/app/fleet': typeof AppFleetRoute
+  '/app/jobs': typeof AppJobsRoute
+  '/app/matching': typeof AppMatchingRoute
+  '/app/optimization': typeof AppOptimizationRoute
+  '/app/planner': typeof AppPlannerRoute
+  '/app/telemetry': typeof AppTelemetryRoute
+  '/app/weather': typeof AppWeatherRoute
   '/app/': typeof AppIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
+  '/app/battery': typeof AppBatteryRoute
+  '/app/fleet': typeof AppFleetRoute
+  '/app/jobs': typeof AppJobsRoute
+  '/app/matching': typeof AppMatchingRoute
+  '/app/optimization': typeof AppOptimizationRoute
+  '/app/planner': typeof AppPlannerRoute
+  '/app/telemetry': typeof AppTelemetryRoute
+  '/app/weather': typeof AppWeatherRoute
   '/app': typeof AppIndexRoute
 }
 export interface FileRoutesById {
@@ -51,14 +115,58 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/app': typeof AppRouteWithChildren
   '/login': typeof LoginRoute
+  '/app/battery': typeof AppBatteryRoute
+  '/app/fleet': typeof AppFleetRoute
+  '/app/jobs': typeof AppJobsRoute
+  '/app/matching': typeof AppMatchingRoute
+  '/app/optimization': typeof AppOptimizationRoute
+  '/app/planner': typeof AppPlannerRoute
+  '/app/telemetry': typeof AppTelemetryRoute
+  '/app/weather': typeof AppWeatherRoute
   '/app/': typeof AppIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/app' | '/login' | '/app/'
+  fullPaths:
+    | '/'
+    | '/app'
+    | '/login'
+    | '/app/battery'
+    | '/app/fleet'
+    | '/app/jobs'
+    | '/app/matching'
+    | '/app/optimization'
+    | '/app/planner'
+    | '/app/telemetry'
+    | '/app/weather'
+    | '/app/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login' | '/app'
-  id: '__root__' | '/' | '/app' | '/login' | '/app/'
+  to:
+    | '/'
+    | '/login'
+    | '/app/battery'
+    | '/app/fleet'
+    | '/app/jobs'
+    | '/app/matching'
+    | '/app/optimization'
+    | '/app/planner'
+    | '/app/telemetry'
+    | '/app/weather'
+    | '/app'
+  id:
+    | '__root__'
+    | '/'
+    | '/app'
+    | '/login'
+    | '/app/battery'
+    | '/app/fleet'
+    | '/app/jobs'
+    | '/app/matching'
+    | '/app/optimization'
+    | '/app/planner'
+    | '/app/telemetry'
+    | '/app/weather'
+    | '/app/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -97,14 +205,86 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppIndexRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/battery': {
+      id: '/app/battery'
+      path: '/battery'
+      fullPath: '/app/battery'
+      preLoaderRoute: typeof AppBatteryRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/fleet': {
+      id: '/app/fleet'
+      path: '/fleet'
+      fullPath: '/app/fleet'
+      preLoaderRoute: typeof AppFleetRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/jobs': {
+      id: '/app/jobs'
+      path: '/jobs'
+      fullPath: '/app/jobs'
+      preLoaderRoute: typeof AppJobsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/matching': {
+      id: '/app/matching'
+      path: '/matching'
+      fullPath: '/app/matching'
+      preLoaderRoute: typeof AppMatchingRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/optimization': {
+      id: '/app/optimization'
+      path: '/optimization'
+      fullPath: '/app/optimization'
+      preLoaderRoute: typeof AppOptimizationRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/planner': {
+      id: '/app/planner'
+      path: '/planner'
+      fullPath: '/app/planner'
+      preLoaderRoute: typeof AppPlannerRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/telemetry': {
+      id: '/app/telemetry'
+      path: '/telemetry'
+      fullPath: '/app/telemetry'
+      preLoaderRoute: typeof AppTelemetryRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/weather': {
+      id: '/app/weather'
+      path: '/weather'
+      fullPath: '/app/weather'
+      preLoaderRoute: typeof AppWeatherRouteImport
+      parentRoute: typeof AppRoute
+    }
   }
 }
 
 interface AppRouteChildren {
+  AppBatteryRoute: typeof AppBatteryRoute
+  AppFleetRoute: typeof AppFleetRoute
+  AppJobsRoute: typeof AppJobsRoute
+  AppMatchingRoute: typeof AppMatchingRoute
+  AppOptimizationRoute: typeof AppOptimizationRoute
+  AppPlannerRoute: typeof AppPlannerRoute
+  AppTelemetryRoute: typeof AppTelemetryRoute
+  AppWeatherRoute: typeof AppWeatherRoute
   AppIndexRoute: typeof AppIndexRoute
 }
 
 const AppRouteChildren: AppRouteChildren = {
+  AppBatteryRoute: AppBatteryRoute,
+  AppFleetRoute: AppFleetRoute,
+  AppJobsRoute: AppJobsRoute,
+  AppMatchingRoute: AppMatchingRoute,
+  AppOptimizationRoute: AppOptimizationRoute,
+  AppPlannerRoute: AppPlannerRoute,
+  AppTelemetryRoute: AppTelemetryRoute,
+  AppWeatherRoute: AppWeatherRoute,
   AppIndexRoute: AppIndexRoute,
 }
 
